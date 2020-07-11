@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/UserInterface/PlayButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=3]
+[ext_resource path="res://src/Screens/EndScreen.gd" type="Script" id=4]
+[ext_resource path="res://assets/Audio and Vid/Scientists-translated-the-coronavirus-into-music.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/Backgrounds/credit_background.png" type="Texture" id=6]
+[ext_resource path="res://assets/congratualtions.png" type="Texture" id=7]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 452.548
+margin_top = 103.238
+margin_right = 1575.55
+margin_bottom = 254.238
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -372.0
+margin_top = -86.0
+margin_right = -59.0
+margin_bottom = -21.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Your final score is %s.
+You got infected %s times."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -319.0
+margin_top = -274.0
+margin_right = -96.0
+margin_bottom = -120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 1 )]
+margin_right = 223.0
+margin_bottom = 77.0
+text = "Play Again"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 2 )]
+margin_top = 77.0
+margin_right = 223.0
+margin_bottom = 154.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+autoplay = true

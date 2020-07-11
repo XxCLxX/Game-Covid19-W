@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/PlayerAnimate/Masked/Mask_Idle0.png" type="Texture" id=1]
+[ext_resource path="res://assets/PlayerAnimate/Masked/Mask_Run0.png" type="Texture" id=2]
+[ext_resource path="res://assets/PlayerAnimate/Masked/Mask_Run1.png" type="Texture" id=3]
+[ext_resource path="res://assets/PlayerAnimate/Masked/Mask_Run2.png" type="Texture" id=4]
+[ext_resource path="res://assets/PlayerAnimate/Masked/Mask_Run3.png" type="Texture" id=5]
+[ext_resource path="res://assets/PlayerAnimate/Masked/Mask_Run4.png" type="Texture" id=6]
+[ext_resource path="res://assets/PlayerAnimate/Masked/Mask_Run5.png" type="Texture" id=7]
+[ext_resource path="res://src/Actors/Masked_Player.gd" type="Script" id=9]
+[ext_resource path="res://assets/PlayerAnimate/Masked/Mask_Jump0.png" type="Texture" id=11]
+[ext_resource path="res://assets/PlayerAnimate/Masked/Mask_Jump3.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 35, 73 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 40, 83 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 48, 16.759 )
+
+[node name="MaskedPlayer" type="KinematicBody2D" groups=[
+"player",
+]]
+collision_mask = 8
+script = ExtResource( 9 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -86 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 1 )
+animation = "Idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -79 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -242 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 7.0
+drag_margin_left = 0.0
+drag_margin_right = 0.0
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+modulate = Color( 0.819608, 0.180392, 0.180392, 1 )
+position = Vector2( 0, -79 )
+shape = SubResource( 3 )
+
+[node name="SocialDistance" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2147483680
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SocialDistance"]
+modulate = Color( 0.819608, 0.180392, 0.180392, 1 )
+position = Vector2( 0, -79 )
+shape = SubResource( 3 )
+
+[node name="BumperDetector" type="Area2D" parent="."]
+collision_layer = 2147483649
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BumperDetector"]
+modulate = Color( 0.588235, 0.180392, 0.819608, 1 )
+position = Vector2( 2, -9 )
+shape = SubResource( 4 )
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
+[connection signal="body_entered" from="SocialDistance" to="." method="_on_SocialDistance_body_entered"]
+[connection signal="area_entered" from="BumperDetector" to="." method="_on_BumperDetector_area_entered"]

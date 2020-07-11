@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/game-title.png" type="Texture" id=1]
+[ext_resource path="res://src/UserInterface/PlayButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Backgrounds/menu_background.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=5]
+[ext_resource path="res://src/Screens/MiniGameButton.gd" type="Script" id=6]
+[ext_resource path="res://assets/Audio and Vid/click-effect.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/Audio and Vid/The-Coronavirus-Song-_-Plague-Remix-_.ogg" type="AudioStream" id=8]
+
+[node name="MainScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game-Title" type="TextureRect" parent="."]
+margin_left = 48.0538
+margin_top = 214.274
+margin_right = 1271.05
+margin_bottom = 316.274
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+margin_left = 48.598
+margin_top = 296.172
+margin_right = 278.598
+margin_bottom = 385.172
+text = "Play Game"
+next_scene_path = "res://src/Levels/Level01(Tutorial).tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PlayButton"]
+stream = ExtResource( 7 )
+
+[node name="MiniGameButton" type="Button" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 50.0
+margin_top = 84.0
+margin_right = 280.0
+margin_bottom = 182.0
+text = "Mini-Game"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_scene_path = "res://Scripts/Main.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MiniGameButton"]
+stream = ExtResource( 7 )
+
+[node name="QuitButton" parent="." instance=ExtResource( 3 )]
+margin_left = 48.0
+margin_top = 481.0
+margin_right = 281.0
+margin_bottom = 579.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="QuitButton"]
+stream = ExtResource( 7 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
+[connection signal="button_up" from="MiniGameButton" to="MiniGameButton" method="_on_MiniGameButton_button_up"]
+[connection signal="pressed" from="MiniGameButton" to="MiniGameButton" method="_on_MiniGameButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_QuitButton_pressed"]

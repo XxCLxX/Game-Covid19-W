@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/factory-music.ogg-5f10f599b16048badf3194cff880c1da.oggstr"
+
+[deps]
+
+source_file="res://assets/Audio and Vid/factory-music.ogg"
+dest_files=[ "res://.import/factory-music.ogg-5f10f599b16048badf3194cff880c1da.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

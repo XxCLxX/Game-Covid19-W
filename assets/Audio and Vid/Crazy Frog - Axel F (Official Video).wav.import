@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Crazy Frog - Axel F (Official Video).wav-88c8bcaf5cfff49fbc709bb82f53e356.sample"
+
+[deps]
+
+source_file="res://assets/Audio and Vid/Crazy Frog - Axel F (Official Video).wav"
+dest_files=[ "res://.import/Crazy Frog - Axel F (Official Video).wav-88c8bcaf5cfff49fbc709bb82f53e356.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

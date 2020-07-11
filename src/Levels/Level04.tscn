@@ -1,0 +1,288 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/Backgrounds/University/image (6).jpeg" type="Texture" id=1]
+[ext_resource path="res://assets/Backgrounds/University/image (7).jpeg" type="Texture" id=2]
+[ext_resource path="res://assets/Backgrounds/University/image (5).jpeg" type="Texture" id=3]
+[ext_resource path="res://assets/Audio and Vid/Sam_Bikov_-_06_-_Russian_Folk_Dance.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/Backgrounds/Lenin/image (1).jpg" type="Texture" id=5]
+[ext_resource path="res://assets/Tilesets/brick-tile.jpg" type="Texture" id=6]
+[ext_resource path="res://src/Actors/Masked_Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/Portal2D.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Levels/Level05.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/Tilesets/tileset.png" type="Texture" id=12]
+[ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/Virus_font.tres" type="DynamicFont" id=14]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 96, 0, 96, 96, 0, 96 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "tileset.png 0"
+0/texture = ExtResource( 12 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 80, 80 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "71owpKt-5NL._AC_SX425_.jpg 1"
+1/texture = ExtResource( 6 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 160, 64, 96, 96 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[node name="Level04" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [ 6024.59 ]
+}
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="UserInterface2" parent="UserInterface" instance=ExtResource( 9 )]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_top = -5.0
+margin_right = 1991.0
+margin_bottom = 1121.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+margin_left = 1992.0
+margin_top = -246.0
+margin_right = 3248.0
+margin_bottom = 1045.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+margin_left = 3248.0
+margin_right = 4552.0
+margin_bottom = 1044.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+margin_left = 4550.0
+margin_top = 16.0
+margin_right = 5917.0
+margin_bottom = 1057.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 3 )
+cell_size = Vector2( 80, 80 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+collision_layer = 8
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, 1, 0, 74, 1, 0, 65536, 1, 0, 65562, 1, 0, 65563, 1, 0, 65564, 1, 0, 65565, 1, 0, 65610, 1, 0, 131072, 1, 0, 131146, 1, 0, 196608, 1, 0, 196629, 1, 0, 196630, 1, 0, 196682, 1, 0, 262144, 1, 0, 262218, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327705, 1, 0, 327752, 1, 0, 327753, 1, 0, 327754, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393241, 1, 0, 393290, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458774, 1, 0, 458775, 1, 0, 458776, 1, 0, 458777, 1, 0, 458823, 1, 0, 458824, 1, 0, 458826, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524320, 1, 0, 524321, 1, 0, 524346, 1, 0, 524362, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589882, 1, 0, 589893, 1, 0, 589894, 1, 0, 589898, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655376, 1, 0, 655380, 1, 0, 655402, 1, 0, 655403, 1, 0, 655404, 1, 0, 655405, 1, 0, 655406, 1, 0, 655417, 1, 0, 655418, 1, 0, 655434, 1, 0, 720896, 1, 0, 720897, 1, 0, 720898, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720912, 1, 0, 720916, 1, 0, 720938, 1, 0, 720952, 1, 0, 720962, 1, 0, 720963, 1, 0, 720964, 1, 0, 720965, 1, 0, 720970, 1, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786452, 1, 0, 786473, 1, 0, 786474, 1, 0, 786484, 1, 0, 786485, 1, 0, 786486, 1, 0, 786487, 1, 0, 786488, 1, 0, 786503, 1, 0, 786504, 1, 0, 786505, 1, 0, 786506, 1, 0, 851968, 1, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 1, 0, 851990, 1, 0, 851991, 1, 0, 851992, 1, 0, 851993, 1, 0, 851994, 1, 0, 851995, 1, 0, 851996, 1, 0, 851997, 1, 0, 851998, 1, 0, 851999, 1, 0, 852000, 1, 0, 852001, 1, 0, 852002, 1, 0, 852003, 1, 0, 852004, 1, 0, 852005, 1, 0, 852006, 1, 0, 852007, 1, 0, 852008, 1, 0, 852009, 1, 0, 852010, 1, 0, 852011, 1, 0, 852012, 1, 0, 852013, 1, 0, 852014, 1, 0, 852015, 1, 0, 852016, 1, 0, 852017, 1, 0, 852018, 1, 0, 852019, 1, 0, 852020, 1, 0, 852021, 1, 0, 852022, 1, 0, 852023, 1, 0, 852024, 1, 0, 852025, 1, 0, 852026, 1, 0, 852027, 1, 0, 852028, 1, 0, 852029, 1, 0, 852030, 1, 0, 852031, 1, 0, 852032, 1, 0, 852033, 1, 0, 852034, 1, 0, 852035, 1, 0, 852036, 1, 0, 852037, 1, 0, 852038, 1, 0, 852039, 1, 0, 852040, 1, 0, 852041, 1, 0, 852042, 1, 0 )
+
+[node name="MaskedPlayer" parent="." instance=ExtResource( 7 )]
+position = Vector2( 148, 404 )
+
+[node name="Camera2D" parent="MaskedPlayer" index="2"]
+limit_right = 6025
+
+[node name="BumperDetector" parent="MaskedPlayer" index="5"]
+visible = false
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin15" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 3737.64, 743.658 )
+
+[node name="Coin16" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 4736.79, 998.216 )
+
+[node name="Coin17" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 4040.99, 986.903 )
+
+[node name="Coin18" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 5735.22, 508.898 )
+
+[node name="Coin19" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 5568.35, 670.119 )
+
+[node name="Coin20" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 5378.84, 828.511 )
+
+[node name="Coin21" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 4685.88, 579.609 )
+
+[node name="Coin4" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 1655.61, 752.143 )
+
+[node name="Coin5" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 1768.74, 194.942 )
+
+[node name="Coin6" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 2043.1, 350.506 )
+
+[node name="Coin7" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 2654.34, 585.266 )
+
+[node name="Coin8" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 2247.04, 42.2069 )
+
+[node name="Coin9" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 3412.36, 746.486 )
+
+[node name="Coin10" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 2272.51, 978.417 )
+
+[node name="Coin11" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 2925.88, 992.56 )
+
+[node name="Coin12" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 2575.16, 981.246 )
+
+[node name="Coin13" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 2416.76, 978.417 )
+
+[node name="Coin14" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 2761.83, 981.246 )
+
+[node name="Coin" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 498.779, 723.859 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 846.676, 641.834 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 1324.68, 754.971 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 3016.48, 1029.33 )
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1941.68, 534.354 )
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 444.602, 1020.84 )
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1117.77, 950.133 )
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1482.64, 1029.33 )
+
+[node name="Enemy15" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 2254.8, 73.3197 )
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 5718.25, 540.011 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 5559.86, 692.746 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 3579.96, 777.599 )
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 4335.15, 947.305 )
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 3854.32, 1015.19 )
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 4985.69, 1015.19 )
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 2654.44, 607.893 )
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 2167.95, 1006.7 )
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 2583.73, 1018.02 )
+
+[node name="Portal2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5829.35, 418 )
+next_scene = ExtResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="Mask" type="Panel" parent="."]
+margin_left = 238.917
+margin_top = 142.446
+margin_right = 630.917
+margin_bottom = 311.446
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="Mask"]
+margin_left = 10.0
+margin_top = 12.0
+margin_right = 384.0
+margin_bottom = 162.0
+custom_fonts/font = ExtResource( 14 )
+text = "Great! You are wearing a mask!
+Now you can defend AKA jump on 
+top of the virus to kill them!
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[editable path="MaskedPlayer"]

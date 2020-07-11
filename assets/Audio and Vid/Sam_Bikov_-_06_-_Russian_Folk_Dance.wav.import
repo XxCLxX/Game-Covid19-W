@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sam_Bikov_-_06_-_Russian_Folk_Dance.wav-9260c6c8d45761ea9ce308b9d4babb07.sample"
+
+[deps]
+
+source_file="res://assets/Audio and Vid/Sam_Bikov_-_06_-_Russian_Folk_Dance.wav"
+dest_files=[ "res://.import/Sam_Bikov_-_06_-_Russian_Folk_Dance.wav-9260c6c8d45761ea9ce308b9d4babb07.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

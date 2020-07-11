@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/grocery store - music.ogg-f170efb380732c018816f40c95d64878.oggstr"
+
+[deps]
+
+source_file="res://assets/Audio and Vid/grocery store - music.ogg"
+dest_files=[ "res://.import/grocery store - music.ogg-f170efb380732c018816f40c95d64878.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Scientists-translated-the-coronavirus-into-music.ogg-b3c2b49c52a847ce9fd30e68307fb05e.oggstr"
+
+[deps]
+
+source_file="res://assets/Audio and Vid/Scientists-translated-the-coronavirus-into-music.ogg"
+dest_files=[ "res://.import/Scientists-translated-the-coronavirus-into-music.ogg-b3c2b49c52a847ce9fd30e68307fb05e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
